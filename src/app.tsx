@@ -49,16 +49,10 @@ function onMouseDown(e: MouseEvent) {
 	);
 
 	if (menuClicked) {
-		const tooltip = menuClicked.querySelector<HTMLDivElement>(".js-tooltip");
+		const tooltip = menuClicked.querySelector(".js-tooltip") as HTMLDivElement;
 
 		for (const menu of visibleMenus) {
-			if (menu !== tooltip) {
-				menu.dataset.visibility = "hidden";
-			}
-		}
-
-		if (!tooltip) {
-			return;
+			menu.dataset.visibility = "hidden";
 		}
 
 		tooltip.dataset.visibility = "visible";
