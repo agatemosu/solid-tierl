@@ -14,30 +14,32 @@ function ListOptions(props: Props) {
 
 	return (
 		<div class="list-options">
-			<button type="button" class="btn-big" onClick={props.addRow}>
-				New tier
-			</button>
+			<div class="list-options__container">
+				<button type="button" class="btn-big" onClick={props.addRow}>
+					New tier
+				</button>
 
-			<label class="btn-big">
-				<span>Select images</span>
-				<input
-					type="file"
-					accept="image/*"
-					multiple={true}
-					hidden={true}
-					onChange={(e) => props.uploadImages(e.target.files)}
+				<label class="btn-big">
+					<span>Select images</span>
+					<input
+						type="file"
+						accept="image/*"
+						multiple={true}
+						hidden={true}
+						onChange={(e) => props.uploadImages(e.target.files)}
+					/>
+				</label>
+
+				<Checkbox
+					label="Square images"
+					onChange={dynamicStyle}
+					id="js-square-img"
 				/>
-			</label>
 
-			<Checkbox
-				label="Square images"
-				onChange={dynamicStyle}
-				id="js-square-img"
-			/>
-
-			<button type="button" class="btn-big" onClick={props.createImage}>
-				Export image
-			</button>
+				<button type="button" class="btn-big" onClick={props.createImage}>
+					Export image
+				</button>
+			</div>
 		</div>
 	);
 }

@@ -1,11 +1,13 @@
 .btn-big {
-	display: inline-block;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	transition: background-color 300ms;
 	margin: 10px;
 	border: none;
 	border-radius: 3px;
 	background-color: var(--buttons-color);
-	padding: 7px 6px;
+	padding: 7px;
 	min-width: 100px;
 	color: var(--button-text);
 	font-size: 13px;

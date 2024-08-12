@@ -1,8 +1,10 @@
 .checkbox {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	cursor: pointer;
 	margin: 4px;
 	padding-block: 6px;
+	text-wrap: nowrap;
 }
 
 .checkbox__label {
@@ -11,7 +13,6 @@
 }
 
 .checkbox__input {
-	display: inline-block;
 	appearance: none;
 	margin: 0 5px 0 0;
 	border-radius: 1px;
