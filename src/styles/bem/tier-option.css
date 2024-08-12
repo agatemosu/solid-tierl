@@ -1,0 +1,22 @@
+.tier-option {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: auto;
+}
+
+.tier-option--delete {
+	grid-row: span 2;
+	justify-content: right;
+}
+
+.tier-option__container {
+	transition: color 200ms;
+	cursor: pointer;
+	color: var(--white);
+
+	&:hover {
+		color: #7f7f7f;
+	}
+}

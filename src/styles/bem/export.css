@@ -1,0 +1,40 @@
+.export {
+	display: flex;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	flex-direction: column;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	border-radius: 10px;
+	background-color: var(--white);
+	padding: 20px;
+	width: 100%;
+	max-height: calc(100dvh - 50px);
+
+	@media (width >= 786px) {
+		max-width: 786px;
+	}
+}
+
+.export__image-container {
+	max-height: 512px;
+	overflow-y: auto;
+}
+
+.export__image {
+	vertical-align: top;
+	width: 100%;
+}
+
+.export__button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.export__button {
+	margin: 0;
+	border-radius: 5px;
+	padding: 10px 20px;
+}

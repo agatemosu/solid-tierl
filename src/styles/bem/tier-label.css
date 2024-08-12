@@ -1,0 +1,49 @@
+.tier-label {
+	position: relative;
+	transition-duration: 300ms;
+	transition-property: background-color, color;
+	border: 1px solid var(--black);
+	background-color: var(--tier-bg);
+	width: 100px;
+	min-height: 80px;
+	color: var(--tier-color);
+}
+
+.tier-label__text {
+	display: flex;
+	align-items: center;
+	padding: 6px 2px;
+	height: 100%;
+
+	&:focus-visible {
+		outline: none;
+		border: 1px solid var(--white);
+	}
+}
+
+.tier-label__text--content {
+	width: 100%;
+	text-align: center;
+}
+
+.tier-label__tooltip {
+	position: absolute;
+	top: 50%;
+	left: 110%;
+	transform: translate(0, -50%);
+	border-radius: 6px;
+	background-color: var(--tooltip);
+	width: 80px;
+	height: 50px;
+
+	&::before {
+		position: absolute;
+		top: 50%;
+		right: 100%;
+		margin-top: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent var(--tooltip) transparent transparent;
+		content: "";
+	}
+}

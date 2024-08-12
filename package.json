@@ -1,0 +1,27 @@
+{
+	"name": "solid-tierl",
+	"private": true,
+	"author": "agatem",
+	"type": "module",
+	"scripts": {
+		"build": "vinxi build",
+		"dev": "vinxi dev",
+		"start": "vinxi start",
+		"version": "vinxi version"
+	},
+	"dependencies": {
+		"@simonwep/pickr": "^1.9.1",
+		"@solidjs/start": "^1.0.6",
+		"html2canvas": "^1.4.1",
+		"solid-js": "^1.8.20",
+		"sortablejs": "^1.15.2",
+		"vinxi": "^0.4.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/sortablejs": "^1.15.8",
+		"postcss": "^8.4.41",
+		"prettier": "^3.3.3",
+		"prettier-plugin-css-order": "^2.1.2"
+	}
+}

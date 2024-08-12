@@ -1,0 +1,26 @@
+.checkbox {
+	display: inline-block;
+	cursor: pointer;
+	margin: 4px;
+	padding-block: 6px;
+}
+
+.checkbox__label {
+	color: var(--button-text);
+	font-size: 15px;
+}
+
+.checkbox__input {
+	display: inline-block;
+	appearance: none;
+	margin: 0 5px 0 0;
+	border-radius: 1px;
+	background-color: var(--button-text);
+	width: 12px;
+	height: 12px;
+}
+
+.checkbox__input:checked {
+	background-image: url("/check.svg");
+	background-color: var(--button-hover);
+}

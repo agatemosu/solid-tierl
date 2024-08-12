@@ -1,0 +1,9 @@
+.tier {
+	display: flex;
+}
+
+.tier--content {
+	flex-grow: 1;
+	border-block: 1px solid var(--black);
+	background-color: var(--tier-content-bg);
+}

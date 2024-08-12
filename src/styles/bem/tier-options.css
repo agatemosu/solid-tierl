@@ -1,0 +1,14 @@
+.tier-options__container {
+	display: flex;
+	align-items: center;
+	border-block: 1px solid var(--option-borders);
+	background-color: var(--black);
+	width: 80px;
+}
+
+.tier-options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 80px;
+	height: 80px;
+}

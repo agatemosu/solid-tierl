@@ -1,0 +1,5 @@
+.list-options {
+	border-bottom: 1px solid var(--buttons-color);
+	background-color: var(--buttons-bg);
+	text-align: center;
+}
