@@ -4,6 +4,7 @@
 	transition-property: background-color, color;
 	border: 1px solid var(--black);
 	background-color: var(--tier-bg);
+	width: 100px;
 	min-width: 100px;
 	min-height: 80px;
 	color: var(--tier-color);
