@@ -96,28 +96,31 @@ function Row(props: Props) {
 			<div class="tier-options__container" data-html2canvas-ignore>
 				<div class="tier-options">
 					<div class="tier-option tier-option--delete">
-						<div
-							class="tier-option__container"
+						<button
+							type="button"
+							class="tier-option__button"
 							onClick={() => props.deleteRow(props.index)}
 						>
 							<Trash />
-						</div>
+						</button>
 					</div>
 					<div class="tier-option">
-						<div
-							class="tier-option__container"
+						<button
+							type="button"
+							class="tier-option__button"
 							onClick={() => props.moveUp(props.index)}
 						>
 							<ChevronUp />
-						</div>
+						</button>
 					</div>
 					<div class="tier-option">
-						<div
-							class="tier-option__container"
+						<button
+							type="button"
+							class="tier-option__button"
 							onClick={() => props.moveDown(props.index)}
 						>
 							<ChevronDown />
-						</div>
+						</button>
 					</div>
 				</div>
 			</div>

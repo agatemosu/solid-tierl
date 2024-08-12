@@ -11,9 +11,12 @@
 	justify-content: right;
 }
 
-.tier-option__container {
+.tier-option__button {
 	transition: color 200ms;
 	cursor: pointer;
+	border: none;
+	background: none;
+	padding: 0;
 	color: var(--white);
 
 	&:hover {
