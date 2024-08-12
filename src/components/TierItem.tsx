@@ -9,7 +9,6 @@ function TierItem({ image }: Props) {
 			style={{
 				"aspect-ratio": `${image.width} / ${image.height}`,
 				"background-image": `url("${image.src}")`,
-				"min-height": `${Math.min(image.height, 80)}px`,
 			}}
 		/>
 	);

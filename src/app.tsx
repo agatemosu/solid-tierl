@@ -9,7 +9,13 @@ import ImagesBar from "~/components/ImagesBar";
 import ListOptions from "~/components/ListOptions";
 import Rows from "~/components/Rows";
 import TierItem from "~/components/TierItem";
-import { clearColor, defaultColors, defaultRows } from "~/constants";
+import {
+	clearColor,
+	defaultColors,
+	defaultRows,
+	maxHeight,
+	pixelatedHeight,
+} from "~/constants";
 import "~/styles/app.css";
 
 function getDefaultRows() {
@@ -64,6 +70,41 @@ function onMouseDown(e: MouseEvent) {
 	}
 }
 
+function compressImage(image: HTMLImageElement) {
+	const canvas = document.createElement("canvas");
+	const ctx = canvas.getContext("2d");
+
+	if (!ctx) {
+		return "";
+	}
+
+	const scaleSize = maxHeight / image.height;
+	canvas.width = image.width * scaleSize;
+	canvas.height = maxHeight;
+
+	ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+	return canvas.toDataURL();
+}
+
+function scaleImage(image: HTMLImageElement) {
+	const canvas = document.createElement("canvas");
+	const ctx = canvas.getContext("2d");
+
+	if (!ctx) {
+		return "";
+	}
+
+	const scaleSize = pixelatedHeight / image.height;
+	canvas.width = image.width * scaleSize;
+	canvas.height = pixelatedHeight;
+
+	ctx.imageSmoothingEnabled = false;
+	ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+	return canvas.toDataURL();
+}
+
 function App() {
 	let blackoutRef!: HTMLDivElement;
 	let rowsRef!: HTMLDivElement;
@@ -91,22 +132,30 @@ function App() {
 			image.src = URL.createObjectURL(file);
 
 			image.onload = () => {
-				const MAX_HEIGHT = 200;
+				const newImage = new Image();
 
-				if (image.height <= MAX_HEIGHT) {
-					render(() => <TierItem image={image} />, imagesBarRef);
-					return;
+				switch (true) {
+					case image.height > maxHeight: {
+						const img = compressImage(image);
+						newImage.src = img;
+						break;
+					}
+
+					case image.height <= pixelatedHeight: {
+						const img = scaleImage(image);
+						newImage.src = img;
+						break;
+					}
+
+					default: {
+						newImage.src = image.src;
+						break;
+					}
 				}
 
-				const canvas = document.createElement("canvas");
-				const ctx = canvas.getContext("2d");
-
-				const scaleSize = MAX_HEIGHT / image.height;
-				canvas.width = image.width * scaleSize;
-				canvas.height = MAX_HEIGHT;
-
-				ctx?.drawImage(image, 0, 0, canvas.width, canvas.height);
-				image.src = canvas.toDataURL();
+				newImage.onload = () => {
+					render(() => <TierItem image={newImage} />, imagesBarRef);
+				};
 			};
 		}
 	};

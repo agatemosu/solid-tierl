@@ -18,3 +18,6 @@ export const defaultRows = [
 	"D (認)",
 	"F (不可)",
 ];
+
+export const maxHeight = 200;
+export const pixelatedHeight = 80;

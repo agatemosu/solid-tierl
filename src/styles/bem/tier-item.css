@@ -1,10 +1,9 @@
 .tier-item {
 	display: inline-flex;
-	vertical-align: top;
 	cursor: pointer;
 	background-size: contain;
 	background-repeat: no-repeat;
-	max-height: 80px;
+	height: 80px;
 
 	&.sortable-ghost {
 		opacity: 0.2;
