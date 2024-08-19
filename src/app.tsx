@@ -106,7 +106,7 @@ function App() {
 	let exportRef!: HTMLDivElement;
 
 	const [rows, setRows] = createSignal(getDefaultRows());
-	const [src, setSrc] = createSignal("");
+	const [exportedImgSrc, setExportedImgSrc] = createSignal("");
 
 	const addRow = () => {
 		setRows([...rows(), { name: "New tier", color: clearColor }]);
@@ -159,7 +159,7 @@ function App() {
 			scale: 1.5,
 			windowWidth: 1080,
 		});
-		setSrc(canvas.toDataURL());
+		setExportedImgSrc(canvas.toDataURL());
 
 		exportRef.dataset.visibility = "visible";
 		blackoutRef.dataset.visibility = "visible";
@@ -190,7 +190,7 @@ function App() {
 				createImage={createImage}
 			/>
 			<ImagesBar ref={imagesBarRef} />
-			<Export ref={exportRef} src={src} />
+			<Export ref={exportRef} src={exportedImgSrc} />
 		</>
 	);
 }
