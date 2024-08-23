@@ -4,6 +4,6 @@
 
 .tier--content {
 	flex-grow: 1;
-	border-block: 1px solid var(--black);
+	border-block: 1px solid var(--tier-border);
 	background-color: var(--tier-content-bg);
 }
