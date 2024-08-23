@@ -20,6 +20,6 @@
 	color: var(--white);
 
 	&:hover {
-		color: #7f7f7f;
+		color: var(--option-hover);
 	}
 }
