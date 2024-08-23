@@ -16,9 +16,8 @@
 	padding: 6px 2px;
 	height: 100%;
 
-	&:focus-visible {
-		outline: none;
-		border-color: var(--white);
+	&:focus {
+		outline: 1px solid var(--white);
 	}
 }
 
