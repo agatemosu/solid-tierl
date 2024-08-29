@@ -11,6 +11,7 @@
 	min-width: 100px;
 	color: var(--button-text);
 	font-size: 13px;
+	text-align: center;
 
 	&:hover {
 		cursor: pointer;
