@@ -9,21 +9,15 @@ import ImagesBar from "~/components/ImagesBar";
 import ListOptions from "~/components/ListOptions";
 import Rows from "~/components/Rows";
 import TierItem from "~/components/TierItem";
-import {
-	clearColor,
-	defaultColors,
-	defaultRows,
-	maxHeight,
-	pixelatedHeight,
-} from "~/constants";
+import { presets, maxHeight, pixelatedHeight } from "~/constants";
 import "~/styles/app.css";
 
 function getDefaultRows() {
 	const rows = [];
 
-	for (let i = 0; i < defaultRows.length; i++) {
-		const color = defaultColors[i];
-		const name = defaultRows[i];
+	for (let i = 0; i < presets.rows.length; i++) {
+		const color = presets.colors[i];
+		const name = presets.rows[i];
 
 		rows[i] = { name, color };
 	}
@@ -109,7 +103,7 @@ function App() {
 	const [exportedImgSrc, setExportedImgSrc] = createSignal("");
 
 	const addRow = () => {
-		setRows([...rows(), { name: "New tier", color: clearColor }]);
+		setRows([...rows(), { name: "New tier", color: presets.color }]);
 	};
 
 	const uploadImages = (files?: FileList | null) => {

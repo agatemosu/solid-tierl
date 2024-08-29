@@ -2,7 +2,7 @@ import Pickr from "@simonwep/pickr";
 import { createSignal, onCleanup, onMount } from "solid-js";
 import Sortable from "sortablejs";
 import { ChevronDown, ChevronUp, Trash } from "~/components/Icons";
-import { clearColor, defaultColors } from "~/constants";
+import { presets } from "~/constants";
 
 interface Props {
 	index: number;
@@ -39,7 +39,7 @@ function Row(props: Props) {
 			container: "#app",
 			theme: "monolith",
 			default: color(),
-			swatches: defaultColors,
+			swatches: presets.colors,
 			components: {
 				preview: true,
 				hue: true,
@@ -53,7 +53,7 @@ function Row(props: Props) {
 
 		pickrInstance.on("save", (hsvaColor: Pickr.HSVaColor) => {
 			if (hsvaColor === null) {
-				pickrInstance.setColor(clearColor);
+				pickrInstance.setColor(presets.color);
 				return;
 			}
 
