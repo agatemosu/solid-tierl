@@ -1,23 +1,18 @@
 import { ui } from "~/ui";
 
-export const languages = {
-	en: "English",
-	es: "Español",
-};
-
-type locale = keyof typeof languages;
+type locale = keyof typeof ui;
 
 class I18n {
 	private defaultLang: locale = "en";
 	private locale: locale;
 
 	constructor(language: string) {
-		if (language in languages) {
+		if (language in ui) {
 			this.locale = language as locale;
 		} else {
 			const [code] = language.split("-");
 
-			this.locale = (code in languages ? code : this.defaultLang) as locale;
+			this.locale = (code in ui ? code : this.defaultLang) as locale;
 		}
 	}
 
