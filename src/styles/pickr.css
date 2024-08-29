@@ -9,7 +9,15 @@
 	height: 30px !important;
 }
 
+.pcr-app {
+	width: unset !important;
+}
+
 .pcr-swatches {
 	display: flex !important;
-	margin-inline: auto;
+	justify-content: center !important;
+}
+
+.pcr-result {
+	width: 8em !important;
 }
