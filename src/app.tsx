@@ -69,7 +69,7 @@ function App() {
 	const [exportedImgSrc, setExportedImgSrc] = createSignal("");
 
 	const addRow = () => {
-		setRows([...rows(), { name: t("newTier"), color: presets.color }]);
+		setRows([...rows(), { name: t("new_tier"), color: presets.color }]);
 	};
 
 	const uploadImages = (files?: FileList | null) => {

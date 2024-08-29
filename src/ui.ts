@@ -1,11 +1,11 @@
 export const ui = {
 	en: {
-		newTier: "New tier",
-		selectImages: "Select images",
-		squareImages: "Square images",
-		exportImage: "Export image",
+		new_tier: "New tier",
+		select_images: "Select images",
+		square_images: "Square images",
+		export_image: "Export image",
 
-		saveImage: "Save image",
+		save_image: "Save image",
 
 		delete: "Delete",
 		up: "Up",

@@ -17,11 +17,11 @@ function ListOptions(props: Props) {
 		<div class="list-options">
 			<div class="list-options__container">
 				<button type="button" class="btn-big" onClick={props.addRow}>
-					{t("newTier")}
+					{t("new_tier")}
 				</button>
 
 				<label class="btn-big">
-					<span>{t("selectImages")}</span>
+					<span>{t("select_images")}</span>
 					<input
 						type="file"
 						accept="image/*"
@@ -32,13 +32,13 @@ function ListOptions(props: Props) {
 				</label>
 
 				<Checkbox
-					label={t("squareImages")}
+					label={t("square_images")}
 					onChange={dynamicStyle}
 					id="js-square-img"
 				/>
 
 				<button type="button" class="btn-big" onClick={props.createImage}>
-					{t("exportImage")}
+					{t("export_image")}
 				</button>
 			</div>
 		</div>
