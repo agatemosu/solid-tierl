@@ -1,4 +1,3 @@
-import "@simonwep/pickr/dist/themes/monolith.min.css";
 import html2canvas from "html2canvas";
 import { createSignal, onMount } from "solid-js";
 import { render } from "solid-js/web";
