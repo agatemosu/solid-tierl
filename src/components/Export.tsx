@@ -1,4 +1,5 @@
 import type { Accessor } from "solid-js";
+import { t } from "~/i18n";
 
 interface Props {
 	ref: HTMLDivElement;
@@ -26,7 +27,7 @@ function ExportImage(props: Props) {
 					class="btn-big export__button"
 					onClick={saveImage}
 				>
-					Save image
+					{t("saveImage")}
 				</button>
 			</div>
 		</div>

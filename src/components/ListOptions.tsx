@@ -1,4 +1,5 @@
 import Checkbox from "~/components/Checkbox";
+import { t } from "~/i18n";
 
 interface Props {
 	addRow: () => void;
@@ -16,11 +17,11 @@ function ListOptions(props: Props) {
 		<div class="list-options">
 			<div class="list-options__container">
 				<button type="button" class="btn-big" onClick={props.addRow}>
-					New tier
+					{t("newTier")}
 				</button>
 
 				<label class="btn-big">
-					<span>Select images</span>
+					<span>{t("selectImages")}</span>
 					<input
 						type="file"
 						accept="image/*"
@@ -31,13 +32,13 @@ function ListOptions(props: Props) {
 				</label>
 
 				<Checkbox
-					label="Square images"
+					label={t("squareImages")}
 					onChange={dynamicStyle}
 					id="js-square-img"
 				/>
 
 				<button type="button" class="btn-big" onClick={props.createImage}>
-					Export image
+					{t("exportImage")}
 				</button>
 			</div>
 		</div>

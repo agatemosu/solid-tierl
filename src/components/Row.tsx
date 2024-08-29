@@ -3,6 +3,7 @@ import { createSignal, onCleanup, onMount } from "solid-js";
 import Sortable from "sortablejs";
 import { ChevronDown, ChevronUp, Trash } from "~/components/Icons";
 import { presets } from "~/constants";
+import { t } from "~/i18n";
 
 interface Props {
 	index: number;
@@ -48,6 +49,10 @@ function Row(props: Props) {
 					clear: true,
 					save: true,
 				},
+			},
+			i18n: {
+				"btn:save": t("save"),
+				"btn:clear": t("clear"),
 			},
 		});
 
