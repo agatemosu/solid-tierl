@@ -2,6 +2,7 @@ import { ui } from "~/ui";
 
 export const languages = {
 	en: "English",
+	es: "Español",
 };
 
 type locale = keyof typeof languages;
