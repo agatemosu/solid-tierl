@@ -33,8 +33,6 @@
 	transform: translate(0, -50%);
 	border-radius: 6px;
 	background-color: var(--tooltip);
-	width: 80px;
-	height: 50px;
 
 	&::before {
 		position: absolute;
