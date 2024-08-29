@@ -9,7 +9,7 @@ import ImagesBar from "~/components/ImagesBar";
 import ListOptions from "~/components/ListOptions";
 import Rows from "~/components/Rows";
 import TierItem from "~/components/TierItem";
-import { maxHeight, pixelatedHeight, presets } from "~/constants";
+import { presets } from "~/constants";
 import { t } from "~/i18n";
 import "~/styles/app.css";
 
@@ -59,41 +59,6 @@ function onMouseDown(e: MouseEvent) {
 	}
 }
 
-function compressImage(image: HTMLImageElement) {
-	const canvas = document.createElement("canvas");
-	const ctx = canvas.getContext("2d");
-
-	if (!ctx) {
-		return "";
-	}
-
-	const scaleSize = maxHeight / image.height;
-	canvas.width = image.width * scaleSize;
-	canvas.height = maxHeight;
-
-	ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-	return canvas.toDataURL();
-}
-
-function scaleImage(image: HTMLImageElement) {
-	const canvas = document.createElement("canvas");
-	const ctx = canvas.getContext("2d");
-
-	if (!ctx) {
-		return "";
-	}
-
-	const scaleSize = pixelatedHeight / image.height;
-	canvas.width = image.width * scaleSize;
-	canvas.height = pixelatedHeight;
-
-	ctx.imageSmoothingEnabled = false;
-	ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-	return canvas.toDataURL();
-}
-
 function App() {
 	let blackoutRef!: HTMLDivElement;
 	let rowsRef!: HTMLDivElement;
@@ -121,30 +86,7 @@ function App() {
 			image.src = URL.createObjectURL(file);
 
 			image.onload = () => {
-				const newImage = new Image();
-
-				switch (true) {
-					case image.height > maxHeight: {
-						const img = compressImage(image);
-						newImage.src = img;
-						break;
-					}
-
-					case image.height <= pixelatedHeight: {
-						const img = scaleImage(image);
-						newImage.src = img;
-						break;
-					}
-
-					default: {
-						newImage.src = image.src;
-						break;
-					}
-				}
-
-				newImage.onload = () => {
-					render(() => <TierItem image={newImage} />, imagesBarRef);
-				};
+				render(() => <TierItem image={image} />, imagesBarRef);
 			};
 		}
 	};
