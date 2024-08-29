@@ -27,7 +27,7 @@ function ExportImage(props: Props) {
 					class="btn-big export__button"
 					onClick={saveImage}
 				>
-					{t("saveImage")}
+					{t("save_image")}
 				</button>
 			</div>
 		</div>
