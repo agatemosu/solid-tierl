@@ -14,6 +14,8 @@ class I18n {
 
 			this.locale = (code in ui ? code : this.defaultLang) as locale;
 		}
+
+		document.documentElement.lang = this.locale;
 	}
 
 	t = (key: keyof (typeof ui)[typeof this.defaultLang]) => {
