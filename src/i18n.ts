@@ -1,28 +1,32 @@
 import { ui } from "~/ui";
 
-type locale = keyof typeof ui;
+type Locale = keyof typeof ui;
 
 class I18n {
-	private defaultLang: locale = "en";
-	private locale: locale;
+	defaultLang: Locale = "en";
+	locale: Locale = this.defaultLang;
 
-	constructor(language: string) {
-		if (language in ui) {
-			this.locale = language as locale;
-		} else {
-			const [code] = language.split("-");
+	setLanguage = (acceptLanguage: string | null) => {
+		if (acceptLanguage == null) return;
 
-			this.locale = (code in ui ? code : this.defaultLang) as locale;
+		const languages = acceptLanguage.split(",");
+
+		for (const lang of languages) {
+			const [locale] = lang.split(";q=");
+
+			if (locale in ui) {
+				this.locale = locale as Locale;
+				break;
+			}
 		}
-
-		document.documentElement.lang = this.locale;
-	}
+	};
 
 	t = (key: keyof (typeof ui)[typeof this.defaultLang]) => {
 		return ui[this.locale][key] || ui[this.defaultLang][key];
 	};
 }
 
-const i18n = new I18n(navigator.language);
+const i18n = new I18n();
 
 export const t = i18n.t;
+export default i18n;
